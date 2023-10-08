@@ -1,6 +1,7 @@
 package org.skg.employeeservice.controller;
 
 import lombok.AllArgsConstructor;
+import org.skg.employeeservice.dto.APIResponseDto;
 import org.skg.employeeservice.dto.EmployeeDto;
 import org.skg.employeeservice.service.EmployeeService;
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,9 @@ public class EmployeeController
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<EmployeeDto> getEmployee(@PathVariable("id") Long employeeId)
+    public ResponseEntity<APIResponseDto> getEmployee(@PathVariable("id") Long employeeId)
     {
-        EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId);
+        APIResponseDto employeeDto = employeeService.getEmployeeById(employeeId);
         return new ResponseEntity<>(employeeDto, HttpStatus.OK);
     }
 }
