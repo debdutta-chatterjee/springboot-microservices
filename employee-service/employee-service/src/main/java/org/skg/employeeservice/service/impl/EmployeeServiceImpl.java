@@ -5,6 +5,7 @@ import org.skg.employeeservice.dto.DepartmentDto;
 import org.skg.employeeservice.dto.EmployeeDto;
 import org.skg.employeeservice.entity.Employee;
 import org.skg.employeeservice.repository.EmployeeRepository;
+import org.skg.employeeservice.service.APIClient;
 import org.skg.employeeservice.service.EmployeeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,9 @@ public class EmployeeServiceImpl implements EmployeeService
 {
     private EmployeeRepository employeeRepository;
     //private RestTemplate restTemplate;
-    private WebClient webClient;
+    //private WebClient webClient;
+    private APIClient apiClient;
+
     @Override
     public EmployeeDto saveEmployee(EmployeeDto employeeDto)
     {
@@ -51,10 +54,13 @@ public class EmployeeServiceImpl implements EmployeeService
 //                );
 //DepartmentDto departmentDto = DepartmentDto.getBody();
 
-        DepartmentDto departmentDto = webClient.get()
-                .uri("http://localhost:8080/api/departments/"+employee.getDepartmentCode())
-                .retrieve()
-                .bodyToMono(DepartmentDto.class).block();
+//        DepartmentDto departmentDto = webClient.get()
+//                .uri("http://localhost:8080/api/departments/"+employee.getDepartmentCode())
+//                .retrieve()
+//                .bodyToMono(DepartmentDto.class).block();
+
+        //Open Feign
+        DepartmentDto departmentDto = apiClient.getDepartment(employee.getDepartmentCode());
 
         EmployeeDto employeeDto = new EmployeeDto(
                 employee.getId(),
