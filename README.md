@@ -20,12 +20,14 @@ Fetches department based on department code
 
 ---
 
-##### Micro service communication(Sync) using 
+##### Micro service - communication(Sync) using 
 
 + Rest Template
 + Web Client
 + Open Fiegn
 
+##### Micro service - service registry using
++ Eureka Server/ Client
 ---
 
 # More to follow :)
