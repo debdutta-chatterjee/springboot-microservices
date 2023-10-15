@@ -7,7 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(url = "http://localhost:8080", value = "DEPARTMENT-SERVICE")
+@FeignClient(name = "DEPARTMENT-SERVICE")
+
+//Configure multiple instances of dept service running in 8080 & 8082 <registered in Eureka server>
+//@FeignClient(url = "http://localhost:8080;http://localhost:8080", value = "DEPARTMENT-SERVICE")
 public interface APIClient
 {
     @GetMapping("api/departments/{department-code}")
