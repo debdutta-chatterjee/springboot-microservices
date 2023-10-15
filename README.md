@@ -5,18 +5,18 @@
 ---
 ##### Employee Service
 Creates employee in database (My SQL) 
-* **POST /api/employees** *
+* **POST /api/employees** 
 
 Fetches employee based on id
-* **GET api/employees/{emp-id}** *
+* **GET api/employees/{emp-id}** 
 ---
 
 ##### Department Service
 Creates department in database (My SQL) 
-* **POST /api/departments** *
+* **POST /api/departments** 
 
 Fetches department based on department code 
-* **GET /api/departments/{dept-code}** *
+* **GET /api/departments/{dept-code}** 
 
 ---
 
